@@ -3,7 +3,7 @@ import ocrmypdf
 
 
 def pdf_ocr():
-    file = os.listdir(".input_pdf_file")
+    file = os.listdir("./input_pdf_file")
     for a in file:
         ocrmypdf.ocr(f'./input_pdf_file/{a}', f'./output_pdf_file/{a}', deskew=True, force_ocr=True)
 

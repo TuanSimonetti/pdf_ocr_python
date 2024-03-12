@@ -163,4 +163,5 @@ cython_debug/
 # The pyinstaller is a lib to bundles packges
 # While pyinstaller is running, is create the build directory to be used like a temp directory
 # Because of this, I'm insert build director here (in .gitignore)
-build/
+build
+dist
