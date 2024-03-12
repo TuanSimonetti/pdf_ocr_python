@@ -9,9 +9,9 @@ cd ./Desktop/pdf_ocr_python/main.py
 echo import os >> main.py
 echo import ocrmypdf >> main.py
 echo def pdf_ocr(): >> main.py
-echo    file = os.listdir(".input_pdf_file") >> main.py
+echo    file = os.listdir("./input_pdf_file") >> main.py
 echo    for a in file: >> main.py
-echo        ocrmypdf.ocr(f'./input_pdf_file/{a}', f'./output_pdf_file/{a}', deskew=True, force_ocr=True) >> main.py
+echo        ocrmypdf.ocr(f'./input_pdf_file/{a}', f'./output_pdf_file/{a}',deskew=True, force_ocr=True) >> main.py
 echo if __name__ == '__main__': >> main.py
 echo    pdf_ocr() >> main.py
 
