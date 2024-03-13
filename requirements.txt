@@ -1,2 +1,9 @@
+# OCR PDF
 ocrmypdf
-pyinstaller
+
+# Front-end Streamlit
+streamlit
+altair
+watchdog
+
+#
