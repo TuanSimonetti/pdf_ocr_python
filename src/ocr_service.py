@@ -2,11 +2,9 @@ import os
 import ocrmypdf
 
 
-def pdf_ocr():
-    file = os.listdir("./input_pdf_file")
-    for a in file:
-        ocrmypdf.ocr(f'./input_pdf_file/{a}', f'./output_pdf_file/{a}', deskew=True, force_ocr=True)
-
-
-if __name__ == '__main__':
-    pdf_ocr()
+def pdf_ocr(pdf_file):
+    while True:
+        file = os.listdir("./input_pdf_file")
+        if pdf_file in file:
+            break
+    ocrmypdf.ocr(f'./input_pdf_file/{pdf_file}', f'./output_pdf_file/{pdf_file}', deskew=True, force_ocr=True)
