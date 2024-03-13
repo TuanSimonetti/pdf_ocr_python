@@ -1,0 +1,9 @@
+# OCR PDF
+ocrmypdf
+
+# Front-end Streamlit
+streamlit
+altair
+watchdog
+
+# 
