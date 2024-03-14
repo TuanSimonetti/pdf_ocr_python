@@ -14,11 +14,23 @@ st.title("OCR PDF")
 uploaded_file = st.file_uploader("Choose a PDF file", type="pdf", accept_multiple_files=False)
 
 if st.button('Submit'):
-    st.markdown("**The file is sucessfully Uploaded.**")
+    upload_text = f"**{uploaded_file.name} is sucessfully Uploaded.**"
+    upload_process = st.progress(0, text=upload_text)
+    save_text = f"**{uploaded_file.name} is sucessfully Saved.**"
+    save_process = st.progress(0, text=save_text)
+    ocr_text = f"**{uploaded_file.name} is sucessfully OCR.**"
+    ocr_process = st.progress(0, text=ocr_text)
+    delete_text = f"**{uploaded_file.name} will be deleted in 30 seconds.**"
+    delete_process = st.progress(0, text=delete_text)
 
-    # Save uploaded file to 'F:/tmp' folder.
+    for percent_complete in range(100):
+        time.sleep(0.001)
+        upload_process.progress(percent_complete + 1, text=upload_text)
+
+    # Save uploaded file to './input_pdf_file' folder.
     save_folder = './input_pdf_file'
     save_path = Path(save_folder, uploaded_file.name)
+
     with st.spinner('Wait for uploading pdf...'):
         with open(save_path, mode='wb') as w:
             w.write(uploaded_file.getvalue())
@@ -26,26 +38,33 @@ if st.button('Submit'):
             input_folder = os.listdir(save_folder)
             if uploaded_file.name in input_folder:
                 break
-        st.success(f'File {uploaded_file.name} is successfully saved!')
+        for percent_complete in range(100):
+            time.sleep(0.001)
+            save_process.progress(percent_complete + 1, text=save_text)
+
     with st.spinner('Wait for ocr process...'):
         pdf_ocr(pdf_file=uploaded_file.name)
         while True:
             output_folder = os.listdir('./output_pdf_file/')
             if uploaded_file.name in output_folder:
                 break
-        st.success(f'File {uploaded_file.name} is successfully ocr processed!')
+        for percent_complete in range(100):
+            time.sleep(0.001)
+            ocr_process.progress(percent_complete + 1, text=ocr_text)
 
     with open(f"./output_pdf_file/{uploaded_file.name}", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
 
-    st.write("arquivo sera arquivado em 30 segundos")
 
     st.download_button(label="Download is ready...",
                        data=PDFbyte,
                        file_name=uploaded_file.name,
                        mime='application/octet-stream')
 
-    time.sleep(30)
+    for percent_complete in range(100):
+        time.sleep(0.5)
+        delete_process.progress(percent_complete + 1, text=delete_text)
+
     os.system(f"rm './input_pdf_file/{uploaded_file.name}'")
     os.system(f"rm './output_pdf_file/{uploaded_file.name}'")
 
