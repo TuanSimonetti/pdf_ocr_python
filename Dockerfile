@@ -2,6 +2,8 @@ FROM python:3.10-slim
 
 RUN pip install --upgrade pip
 RUN mkdir -p /app/
+RUN mkdir /app/input_pdf_file/
+RUN mkdir /app/output_pdf_file/
 WORKDIR /app
 
 COPY . /app/

@@ -39,9 +39,14 @@ if st.button('Submit'):
         PDFbyte = pdf_file.read()
 
     st.download_button(label="Download is ready...",
-                   data=PDFbyte,
-                   file_name=uploaded_file.name,
-                   mime='application/octet-stream')
+                       data=PDFbyte,
+                       file_name=uploaded_file.name,
+                       mime='application/octet-stream')
 
+    st.write("arquivo sera arquivado em 30 segundos")
+
+    time.sleep(30)
+    os.system(f"rm './input_pdf_file/{uploaded_file.name}'")
+    os.system(f"rm './output_pdf_file/{uploaded_file.name}'")
 
 
