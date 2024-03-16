@@ -29,6 +29,7 @@ if st.button('Submit'):
 
     # Save uploaded file to './input_pdf_file' folder.
     save_folder = './input_pdf_file'
+    output_folder = './output_pdf_file'
     save_path = Path(save_folder, uploaded_file.name)
 
     with st.spinner('Wait for uploading pdf...'):
@@ -43,10 +44,10 @@ if st.button('Submit'):
             save_process.progress(percent_complete + 1, text=save_text)
 
     with st.spinner('Wait for ocr process...'):
-        pdf_ocr(pdf_file=uploaded_file.name)
+        pdf_ocr(input_directory=save_folder, output_directory=output_folder, pdf_file=uploaded_file.name)
         while True:
-            output_folder = os.listdir('./output_pdf_file/')
-            if uploaded_file.name in output_folder:
+            output_folder_list = os.listdir('./output_pdf_file')
+            if uploaded_file.name in output_folder_list:
                 break
         for percent_complete in range(100):
             time.sleep(0.001)
