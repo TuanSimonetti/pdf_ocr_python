@@ -7,4 +7,4 @@ altair
 watchdog
 
 # test
-pytest==7.2.2
+pytest
