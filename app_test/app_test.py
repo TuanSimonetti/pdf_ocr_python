@@ -13,10 +13,10 @@ def test_ocr_pdf_page_1():
 
 
 def test_pdf_ocr_function():
+    pdf_file = "hello_world.pdf"
     os.system("mkdir ../input_pdf_file")
     os.system("mkdir ../output_pdf_file")
-    os.system("cp ../app_test/test.pdf ../input_pdf_file/")
-    pdf_file = "test.pdf"
+    os.system(f"cp ../app_test/{pdf_file} ../input_pdf_file/")
     input_directory = "../input_pdf_file"
     output_directory = "../output_pdf_file"
     pdf_ocr(input_directory=input_directory, output_directory=output_directory, pdf_file=pdf_file)
