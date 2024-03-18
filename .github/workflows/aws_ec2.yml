@@ -1,6 +1,6 @@
-name: aws_ec2
+name: "aws_ec2"
 on:
-  push:
+  merge_group:
     branches:
       - main
 
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: checkout the files
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Copy files with ssh
         uses: easingthemes/ssh-deploy@main
