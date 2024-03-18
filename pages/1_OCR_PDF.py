@@ -61,9 +61,9 @@ if st.button('Submit'):
                        file_name=uploaded_file.name,
                        mime='application/octet-stream')
 
+    os.system(f"rm './input_pdf_file/{uploaded_file.name}'")
+    os.system(f"rm './output_pdf_file/{uploaded_file.name}'")
+
     for percent_complete in range(100):
         time.sleep(0.5)
         delete_process.progress(percent_complete + 1, text=delete_text)
-
-    os.system(f"rm './input_pdf_file/{uploaded_file.name}'")
-    os.system(f"rm './output_pdf_file/{uploaded_file.name}'")
