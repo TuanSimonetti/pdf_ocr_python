@@ -9,3 +9,5 @@ docker system df
 https://www.youtube.com/watch?v=PKzmlOygdXY
 
 docker system prune --all -f
+
+URl to access aws service: http://3.131.85.180:8502/
