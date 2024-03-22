@@ -11,3 +11,5 @@ https://www.youtube.com/watch?v=PKzmlOygdXY
 docker system prune --all -f
 
 URL to access: http://3.131.85.180:8502/
+
+Start the project: docker-compose up -d && docker-compose up --build

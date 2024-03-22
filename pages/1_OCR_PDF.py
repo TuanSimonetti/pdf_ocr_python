@@ -3,7 +3,7 @@ import time
 import streamlit as st
 from pathlib import Path
 import os
-from src.ocr_service import pdf_ocr
+from src.service.ocr_service import pdf_ocr
 
 st.set_page_config(
     page_title="OCR PDF"
