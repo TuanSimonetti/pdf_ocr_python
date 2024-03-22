@@ -1,6 +1,6 @@
-import os
 from streamlit.testing.v1 import AppTest
-from src.ocr_service import pdf_ocr
+#from src.service.ocr_service import pdf_ocr
+
 
 def test_home_page():
     at = AppTest.from_file("../Home.py").run()

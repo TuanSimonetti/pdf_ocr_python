@@ -17,6 +17,7 @@ RUN python3 -m pip install -r /app/requirements.txt
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8502
+EXPOSE 8000
 
 HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
 

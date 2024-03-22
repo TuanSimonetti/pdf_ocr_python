@@ -1,9 +1,8 @@
 import time
-
 import streamlit as st
 from pathlib import Path
 import os
-from src.ocr_service import pdf_ocr
+from src.service.ocr_service import pdf_ocr
 
 st.set_page_config(
     page_title="OCR PDF"
@@ -55,7 +54,6 @@ if st.button('Submit'):
 
     with open(f"./output_pdf_file/{uploaded_file.name}", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
-
 
     st.download_button(label="Download is ready...",
                        data=PDFbyte,

@@ -8,3 +8,13 @@ watchdog
 
 # test
 pytest
+pytest-cov
+coverage
+
+# api
+fastapi
+uvicorn
+starlette
+
+# Infra
+python-multipart
